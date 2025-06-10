@@ -1,0 +1,66 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 p-6">
+  <div class="bg-white rounded-2xl shadow-2xl flex w-full max-w-4xl overflow-hidden">
+
+    <!-- Image section -->
+    <div class="hidden lg:flex lg:w-1/2 bg-cover bg-center" style="background-image: url('assets/ani.jpg')">
+    </div>
+
+    <!-- Form section -->
+    <div class="w-full lg:w-1/2 p-10">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Content de te revoir !</h2>
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="singInForm" class="space-y-6">
+
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-700">Nom d'utilisateur</label>
+          <input
+            id="username"
+            type="text"
+            formControlName="username"
+            placeholder="Nom d'utilisateur"
+            [ngClass]="{'border-red-500': submitted && fb.username?.errors }"
+            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          />
+          <p *ngIf="submitted && fb.username?.errors" class="mt-1 text-xs text-red-500 italic">Le nom d'utilisateur est requis.</p>
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Mot de passe</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            placeholder="••••••••••"
+            [ngClass]="{'border-red-500': submitted && fb.password?.errors }"
+            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+          />
+          <p *ngIf="submitted && fb.password?.errors" class="mt-1 text-xs text-red-500 italic">Veuillez entrer un mot de passe valide.</p>
+        </div>
+
+        <div class="flex items-center">
+          <input
+            id="remember"
+            type="checkbox"
+            formControlName="remberMe"
+            class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+          />
+          <label for="remember" class="ml-2 block text-sm text-gray-900">Se souvenir de moi</label>
+        </div>
+
+        <!-- Message d'erreur de connexion -->
+        <p *ngIf="errorMessage" class="text-center text-red-600 font-medium">{{ errorMessage }}</p>
+
+        <button
+          type="submit"
+          class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md shadow-md transition duration-300"
+        >
+          Se Connecter
+        </button>
+
+        <div class="text-center mt-4">
+          <a href="#" class="text-sm text-blue-600 hover:underline">Mot de passe oublié ?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

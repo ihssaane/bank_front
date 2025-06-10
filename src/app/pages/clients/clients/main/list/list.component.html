@@ -1,0 +1,41 @@
+   
+<h5 class="font-medium text-1xl">Liste des Clients</h5>  
+<table class="table-auto w-full">
+    <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+        <tr>
+            <th class="p-2 whitespace-nowrap">
+                <div class="font-semibold text-left">Nom Complet</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+                <div class="font-semibold text-left">Email</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+                <div class="font-semibold text-left">Telephone</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+                <div class="font-semibold text-center">Date Naissance</div>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="text-sm divide-y divide-gray-100">
+        <tr *ngFor="let c of clients">
+            <td class="p-2 whitespace-nowrap">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
+                        <img class="rounded-full" src="assets/client.jpg" width="40" height="40" alt="Alex Shatov"></div>
+                    <div class="font-medium text-gray-800">{{c.firstName}} {{c?.lastName}}</div>
+                </div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left">{{c.email}}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left">{{c.telephone}}</div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-left">{{c.birthday|date: 'dd/MM/YYYY'}}</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

@@ -1,0 +1,20 @@
+<section class="sticky top-0 z-50 p-4 bg-[#F76B61] bg-blueGray-200">
+    <div class="container px-4 mx-auto">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 p-4 bg-[#F76B61]">
+        <div class="container flex items-center justify-between mx-auto">
+            <div class="text-2xl font-bold text-white cursor-pointer" routerLink="/home">
+              FIBANK  <span class="text-white-300">| Gestion Comptes bancaires</span>
+            </div>
+            <ul class="flex space-x-6 text-lg text-white">
+                <li *ngFor="let n of navs">
+                    <a *ngIf="user_role == n.role"  routerLink="{{n.path}}" class="hover:text-blue-300">{{n.name}}</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+    <!-- FIN -->  
+    </div>
+  </section>
+  
+ 
